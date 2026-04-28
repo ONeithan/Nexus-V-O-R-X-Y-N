@@ -1935,7 +1935,9 @@ class OpenAIShimMessages {
         classifyOpenAIHttpFailure({
           status,
           body: errorBody,
+          url: requestUrl,
         })
+      const failureWithUrl = { ...failure, requestUrl: failure.requestUrl ?? requestUrl }
       const redactedUrl = redactUrlForDiagnostics(requestUrl)
 
       logForDebugging(
@@ -1948,7 +1950,7 @@ class OpenAIShimMessages {
         parsedBody,
         buildOpenAICompatibilityErrorMessage(
           `OpenAI API error ${status}: ${errorBody}${rateHint}`,
-          failure,
+          failureWithUrl,
         ),
         responseHeaders,
       )
