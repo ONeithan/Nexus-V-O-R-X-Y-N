@@ -31,7 +31,12 @@ export function formatAgentAsMarkdown(
   // - Backslashes: \ -> \\
   // - Double quotes: " -> \"
   // - Newlines: \n -> \\n (so yaml reads it as literal backslash-n, not newline)
-  const escapedWhenToUse = whenToUse
+  // Defensive coercion: upstream callers (LLM-generated metadata, manually
+  // edited agent files) have produced non-string values here in the past,
+  // which crashed agent creation with `whenToUse.replace is not a function`.
+  const whenToUseStr =
+    typeof whenToUse === 'string' ? whenToUse : String(whenToUse ?? '')
+  const escapedWhenToUse = whenToUseStr
     .replace(/\\/g, '\\\\') // Escape backslashes first
     .replace(/"/g, '\\"') // Escape double quotes
     .replace(/\n/g, '\\\\n') // Escape newlines as \\n so yaml preserves them as \n
