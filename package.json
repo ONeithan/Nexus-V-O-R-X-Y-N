@@ -1,10 +1,11 @@
 {
-  "name": "@gitlawb/openclaude",
-  "version": "0.9.2",
-  "description": "OpenClaude opens coding-agent workflows to any LLM — OpenAI, Gemini, DeepSeek, Ollama, and 200+ models",
+  "name": "@oneithan/nexus-vorxyn",
+  "version": "1.0.0",
+  "description": "Nexus VORXYN - O Oráculo do Vazio. Uma interface neural agêntica para canalizar a inteligência do Vazio e processar o conhecimento absoluto.",
+  "author": "ONeithan",
   "type": "module",
   "bin": {
-    "openclaude": "./bin/openclaude"
+    "vorxyn": "./bin/openclaude"
   },
   "exports": {
     "./package.json": "./package.json",
@@ -160,7 +161,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Gitlawb/openclaude.git"
+    "url": "https://github.com/ONeithan/Nexus-V-O-R-X-Y-N.git"
   },
   "keywords": [
     "claude-code",
